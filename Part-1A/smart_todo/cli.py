@@ -147,7 +147,7 @@ def _render_tasks(tasks: Sequence[Task]) -> str:
                 task.id,
                 json.dumps(task.title, ensure_ascii=False),
                 task.priority.value,
-                json.dumps(list(task.tags), ensure_ascii=False),
+                (json.dumps(list(task.tags), ensure_ascii=False) if task.tags else "-"),
                 task.status.value,
             )
         )

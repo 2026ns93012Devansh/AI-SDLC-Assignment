@@ -54,6 +54,21 @@ def test_cli_add_list_update_delete(tmp_path, capsys):
     assert json.loads(storage_path.read_text(encoding="utf-8"))["tasks"] == []
 
 
+def test_cli_list_displays_dash_for_untagged_task(tmp_path, capsys):
+    storage_path = tmp_path / "tasks.json"
+    assert main(["--file", str(storage_path), "add", "--title", "Untagged"]) == 0
+    capsys.readouterr()
+
+    assert main(["--file", str(storage_path), "list"]) == 0
+
+    task_row = next(
+        line
+        for line in capsys.readouterr().out.splitlines()
+        if line.startswith("T-0001")
+    )
+    assert task_row.split("|")[3].strip() == "-"
+
+
 def test_cli_unknown_id_reports_error_and_nonzero_status(tmp_path, capsys):
     storage_path = tmp_path / "tasks.json"
 
