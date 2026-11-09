@@ -1,0 +1,19 @@
+{
+  "test_type": "Initial manual model test",
+  "model": "qwen2.5:3b",
+  "reference_date": "2026-11-09",
+  "timezone": "Asia/Kolkata",
+  "temperature": 0,
+  "seed": 42,
+  "input": "Remind me tomorrow at 9 AM to submit my assignment",
+  "actual_output": {
+    "title": null,
+    "date": null,
+    "time": "20:00",
+    "priority": null,
+    "status": "needs_clarification",
+    "needs_clarification": true
+  },
+  "observation": "The model returned an incorrect time and failed to extract the title and date. The JSON passed schema validation despite incorrect semantic content.",
+  "repair_status": "Not yet repaired"
+}

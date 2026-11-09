@@ -1,0 +1,19 @@
+{
+  "test_type": "Repeated manual model test after prompt repair",
+  "model": "qwen2.5:3b",
+  "reference_date": "2026-11-09",
+  "timezone": "Asia/Kolkata",
+  "temperature": 0,
+  "seed": 42,
+  "input": "Remind me tomorrow at 9 AM to submit my assignment",
+  "actual_output": {
+    "title": "Submit my assignment",
+    "date": "2026-11-10",
+    "time": "09:00",
+    "priority": null,
+    "status": "ready",
+    "needs_clarification": false
+  },
+  "observation": "The repeated test returned all expected fields correctly after adding explicit extraction rules and a worked example to the prompt.",
+  "repair_status": "Successful for this test case"
+}
